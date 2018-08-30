@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Service
 public class JobServiceImpl implements JobService {
     @Autowired
@@ -28,7 +31,7 @@ public class JobServiceImpl implements JobService {
         try {
         String ip=systemUtils.getLocalAddress();
         System.out.println(ip);
-        if(null==ip){
+        if(null==ip||"".equals(ip)){
             throw new RuntimeException("获取外网IP失败");
         }
         if(null==redisTemplate.opsForValue().get("ip"))
@@ -49,24 +52,38 @@ public class JobServiceImpl implements JobService {
         request1.setAction("DescribeDomainRecords");
         request1.setVersion("2015-01-09");
         request1.putQueryParameter("DomainName",paraMeterEntity.getDomainName());
-        request1.putQueryParameter("RRKeyWord",paraMeterEntity.getRRKeyWord());
         request1.putQueryParameter("TypeKeyWord",paraMeterEntity.getTypeKeyWord());
 
-            String json=client.getCommonResponse(request1).getData();
-            DescribeDomainRecords obj=JSON.parseObject(json,DescribeDomainRecords.class);
-            String RecordId=obj.getDomainRecords().getRecord().get(0).getRecordId();
-            // 创建API请求并设置参数
-            CommonRequest request = new CommonRequest();
-            //获取用户域名下所有解析
-            request.setDomain("alidns.aliyuncs.com");
-            request.setVersion("2015-01-09");
-            request.setAction("UpdateDomainRecord");
-            request.putQueryParameter("RecordId",RecordId);
-            request.putQueryParameter("RR", paraMeterEntity.getRRKeyWord());
-            request.putQueryParameter("Type", paraMeterEntity.getTypeKeyWord());
-            request.putQueryParameter("Value",ip);
-            CommonResponse response = client.getCommonResponse(request);
-            System.out.println(response.getData());
+        // 创建API请求并设置参数
+        CommonRequest request = new CommonRequest();
+        //获取用户域名下所有解析
+        request.setDomain("alidns.aliyuncs.com");
+        request.setVersion("2015-01-09");
+        request.setAction("UpdateDomainRecord");
+        request.putQueryParameter("Type", paraMeterEntity.getTypeKeyWord());
+        request.putQueryParameter("Value",ip);
+
+
+            String rRKeyWord=paraMeterEntity.getRRKeyWord();
+
+            for (String s : rRKeyWord.split(",")) {
+
+                request1.putQueryParameter("RRKeyWord",s);
+                String json=client.getCommonResponse(request1).getData();
+                DescribeDomainRecords obj=JSON.parseObject(json,DescribeDomainRecords.class);
+                String RecordId=obj.getDomainRecords().getRecord().get(0).getRecordId();
+                request.putQueryParameter("RecordId",RecordId);
+                request.putQueryParameter("RR", s);
+
+                CommonResponse response = client.getCommonResponse(request);
+                System.out.println(String.format(s + paraMeterEntity.getDomainName() + "--------更新" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())));
+                System.out.println("更细结果："+response.getData());
+
+            }
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
