@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution.utils;
+package com.daiv.cloudresolution.utils;
 
 import java.util.HashMap;
 import java.util.Map;

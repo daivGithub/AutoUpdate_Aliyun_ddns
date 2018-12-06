@@ -16,9 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.wqw.cloudresolution.utils;
+package com.daiv.cloudresolution.utils;
 
-import com.wqw.cloudresolution.constant.Constants;
+import com.daiv.cloudresolution.constant.Constants;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.UnsupportedEncodingException;

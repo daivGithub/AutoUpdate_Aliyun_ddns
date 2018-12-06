@@ -1,8 +1,8 @@
-package com.wqw.cloudresolution.utils;
+package com.daiv.cloudresolution.utils;
 
 
-import com.wqw.cloudresolution.constant.Constants;
-import com.wqw.cloudresolution.ymlEntity.ParaMeterEntity;
+import com.daiv.cloudresolution.constant.Constants;
+import com.daiv.cloudresolution.ymlEntity.ParaMeterEntity;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

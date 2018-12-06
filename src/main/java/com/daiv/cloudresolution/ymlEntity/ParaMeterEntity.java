@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution.ymlEntity;
+package com.daiv.cloudresolution.ymlEntity;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

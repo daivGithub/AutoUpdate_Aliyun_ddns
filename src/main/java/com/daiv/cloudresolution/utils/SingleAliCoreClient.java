@@ -1,9 +1,9 @@
-package com.wqw.cloudresolution.utils;
+package com.daiv.cloudresolution.utils;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.profile.DefaultProfile;
-import com.wqw.cloudresolution.ymlEntity.ParaMeterEntity;
+import com.daiv.cloudresolution.ymlEntity.ParaMeterEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

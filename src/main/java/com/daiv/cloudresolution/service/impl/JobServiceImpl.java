@@ -1,14 +1,14 @@
-package com.wqw.cloudresolution.service.impl;
+package com.daiv.cloudresolution.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
 import com.aliyuncs.IAcsClient;
-import com.wqw.cloudresolution.jsonEntity.DescribeDomainRecords;
-import com.wqw.cloudresolution.service.JobService;
-import com.wqw.cloudresolution.utils.SingleAliCoreClient;
-import com.wqw.cloudresolution.utils.SystemUtils;
-import com.wqw.cloudresolution.ymlEntity.ParaMeterEntity;
+import com.daiv.cloudresolution.jsonEntity.DescribeDomainRecords;
+import com.daiv.cloudresolution.ymlEntity.ParaMeterEntity;
+import com.daiv.cloudresolution.service.JobService;
+import com.daiv.cloudresolution.utils.SingleAliCoreClient;
+import com.daiv.cloudresolution.utils.SystemUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;

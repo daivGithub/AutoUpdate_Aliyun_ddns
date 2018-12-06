@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution.jsonEntity;
+package com.daiv.cloudresolution.jsonEntity;
 
 public class DescribeDomainRecords {
 

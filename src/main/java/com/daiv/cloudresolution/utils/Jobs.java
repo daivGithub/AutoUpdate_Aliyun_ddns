@@ -1,6 +1,6 @@
-package com.wqw.cloudresolution.utils;
+package com.daiv.cloudresolution.utils;
 
-import com.wqw.cloudresolution.service.JobService;
+import com.daiv.cloudresolution.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

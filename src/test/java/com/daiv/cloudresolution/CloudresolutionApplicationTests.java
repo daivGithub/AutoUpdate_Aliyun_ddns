@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution;
+package com.daiv.cloudresolution;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

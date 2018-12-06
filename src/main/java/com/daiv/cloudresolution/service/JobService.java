@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution.service;
+package com.daiv.cloudresolution.service;
 
 
 

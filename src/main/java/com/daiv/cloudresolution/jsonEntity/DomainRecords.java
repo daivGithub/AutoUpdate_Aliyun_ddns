@@ -1,4 +1,4 @@
-package com.wqw.cloudresolution.jsonEntity;
+package com.daiv.cloudresolution.jsonEntity;
 import java.util.List;
 
 public class DomainRecords {
