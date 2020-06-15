@@ -50,9 +50,10 @@ public class SystemUtils {
         if("error".equals(str)){
             return null;
         }else{
-            int start=str.indexOf("[")+1;
+            /*int start=str.indexOf("[")+1;
             int end=str.indexOf("]");
-            ip=str.substring(start,end);
+            ip=str.substring(start,end);*/
+            ip=str.trim();
         }
         return ip;
     }
